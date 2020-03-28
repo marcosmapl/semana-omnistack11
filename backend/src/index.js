@@ -1,4 +1,5 @@
 const express =  require('express');
+const routes = require('./routes');
 
 const app = express();
 
@@ -30,18 +31,6 @@ app.use(express.json()); // define que as requisições devam ocorrer usando JSO
  *  Query Builder: table('users').select('*').where()
  */
 
-
-app.post('/users', (request, response) => {
-  const params = request.query;
-  const body = request.body;
-
-  console.log(params);
-  console.log(body);
-
-  return response.json({
-    evento: 'Semana Omnistack 11.0',
-    aluno: 'Marcos Lima'
-  });
-}); // rota raiz
+app.use(routes);
 
 app.listen(3333);

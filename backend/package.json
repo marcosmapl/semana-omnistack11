@@ -4,7 +4,7 @@
   "description": "Be a Hero react-js backend project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
