@@ -20,6 +20,14 @@ app.use(express.json()); // define que as requisições devam ocorrer usando JSO
  *    app.get('users/:id', ...)
  *    https://localhost:3333/users/1
  *  REQUEST BODY: corpo da requisição, utilizado para criar ou alterar recursos.
+ * 
+ * Banco de Dados
+ *  SQL: MySQL, PostgreSQL, Oracle, Microsoft SQL Server, SQLite
+ *  NOSQL: MongoDB, CouchDB, Cassandra, etc.
+ * 
+ * Queries
+ *  Drivers: SELECT * FROM TABLE;
+ *  Query Builder: table('users').select('*').where()
  */
 
 

@@ -1,11 +1,24 @@
 -- backend
 npm init -y
+
+# minimalist web framework for nodejs
 npm install express
+
+# nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 npm install nodemon -D
 
 edit: package.json
   "scripts": {
     "start": "nodemon index.js"
+
+# query builder
+npm install knex
+
+# sqlite3 drivers
+npm install sqlite3
+
+# make knex database connection config file
+npx knex init
 
 -- frontend
 npx create-react-app frontend
