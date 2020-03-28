@@ -26,7 +26,14 @@ edit: knexfile.js
   connection: {
     filename: './src/database/db.sqlite3'
   }
+  migrations: {
+      directory: './src/database/migrations'
+  },
+  useNullAsDefault: true,
 ...
+
+# execute all latest migrations
+npx knex migrate:latest
 
 -- frontend
 npx create-react-app frontend

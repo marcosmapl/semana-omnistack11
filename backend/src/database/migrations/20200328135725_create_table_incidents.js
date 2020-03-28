@@ -1,7 +1,7 @@
-const table_name = 'incidents';
 exports.up = function(knex) {
-  knex.schema.createTable(table_name, function (talbe) {
+  return knex.schema.createTable('incidents', function (table) {
     table.increments();
+
     table.string('title').notNullable();
     table.string('description').notNullable();
     table.decimal('value').notNullable();
@@ -13,5 +13,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTable(table_name);
+  return knex.schema.dropTable('incidents');
 };

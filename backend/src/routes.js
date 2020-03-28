@@ -1,19 +1,10 @@
 const express =  require('express');
+const OngController = require('./controllers/OngController');
 
 // obtém o objeto de roteamento do express
 const routes = express.Router();
 
-routes.post('/users', (request, response) => {
-  const params = request.query;
-  const body = request.body;
-
-  console.log(params);
-  console.log(body);
-
-  return response.json({
-    evento: 'Semana Omnistack 11.0',
-    aluno: 'Marcos Lima'
-  });
-}); // rota raiz
+routes.get('/ongs', OngController.index);
+routes.post('/ongs', OngController.create);
 
 module.exports = routes;
