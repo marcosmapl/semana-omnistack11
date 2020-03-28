@@ -1,0 +1,6 @@
+-- backend
+npm init -y
+npm install express
+
+-- frontend
+npx create-react-app frontend
