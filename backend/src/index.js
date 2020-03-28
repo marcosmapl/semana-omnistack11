@@ -1,8 +1,10 @@
-const express =  require('express');
+const express = require('express');
+const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json()); // define que as requisições devam ocorrer usando JSON
 
 /**
