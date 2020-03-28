@@ -1,6 +1,11 @@
 -- backend
 npm init -y
 npm install express
+npm install nodemon -D
+
+edit: package.json
+  "scripts": {
+    "start": "nodemon index.js"
 
 -- frontend
 npx create-react-app frontend
