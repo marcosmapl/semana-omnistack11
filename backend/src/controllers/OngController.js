@@ -1,9 +1,10 @@
+const table_name = 'ongs'
 const connection = require('../database/connection');
 const crypto = require('crypto');
 
 module.exports = {
   async index(request, response) {
-    const ongs = await connection('ongs').select('*');
+    const ongs = await connection(table_name).select('*');
 
     return response.json(ongs);
   },
@@ -12,7 +13,7 @@ module.exports = {
 
     const id = crypto.randomBytes(4).toString('HEX');
 
-    await connection('ongs').insert({
+    await connection(table_name).insert({
       id,
       name,
       email,

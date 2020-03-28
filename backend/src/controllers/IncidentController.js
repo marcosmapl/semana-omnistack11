@@ -1,8 +1,9 @@
+table_name = 'incidents'
 const connection = require('../database/connection');
 
 module.exports = {
   async index(request, response) {
-    const incidents = await connection('incidents').select('*');
+    const incidents = await connection(table_name).select('*');
 
     return response.json(incidents);
   },
@@ -11,13 +12,31 @@ module.exports = {
     const ong_id = request.headers.authorization;
 
     // insert retorna um array unitário
-    const [id] = await connection('incidents').insert({
+    const [id] = await connection(table_name).insert({
       title,
       description,
       value,
       ong_id,
     });
 
-    return response.json({ id }); 
+    return response.json({ id });
+  },
+  async delete(request, response) {
+    const { id } = request.params;
+    const ong_id = request.headers.authorization;
+
+    const incident = await connection(table_name)
+      .where('id', id)
+      .select('ong_id')
+      .first();
+
+    if (incident.ong_id !== ong_id) {
+      // not authorized
+      return response.status(401).json({error: "You are not the incident's owner"});
+    }
+
+    await connection(table_name).where('id', id).delete();
+
+    return response.status(204).send();
   }
 };
