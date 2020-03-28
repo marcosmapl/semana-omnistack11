@@ -20,5 +20,13 @@ npm install sqlite3
 # make knex database connection config file
 npx knex init
 
+#
+edit: knexfile.js
+...
+  connection: {
+    filename: './src/database/db.sqlite3'
+  }
+...
+
 -- frontend
 npx create-react-app frontend
