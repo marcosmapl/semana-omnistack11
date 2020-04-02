@@ -16,15 +16,15 @@ export default function NewIncident() {
           <h1>Cadastrar novo caso</h1>
           <p>Descreva o caso detalhadamente para encontrar um herói resolver isso.</p>
 
-          <Link className="back-link" to="/">
+          <Link className="back-link" to="/profile">
             <FiArrowLeft size={16} color="#E02041" />
             Voltar para home
           </Link>
         </section>
-        <form action="">
-          <input type="text" placeholder="Título do caso" />
+        <form>
+          <input placeholder="Título do caso" />
           <textarea placeholder="Descrição"></textarea>
-          <input type="text" placeholder="Valor em R$" />
+          <input placeholder="Valor em R$" />
 
           <button className="button" type="submit">Cadastrar</button>
         </form>
