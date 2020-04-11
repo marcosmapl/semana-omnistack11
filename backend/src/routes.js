@@ -9,6 +9,8 @@ const SessionController = require('./controllers/SessionController');
 // obtém o objeto de roteamento do express
 const routes = express.Router();
 
+// ONG ROUTES
+
 routes.post('/sessions', celebrate({
   [Segments.BODY]: Joi.object().keys({
     id: Joi.string().required(),
@@ -25,6 +27,23 @@ routes.post('/ongs', celebrate({
     uf: Joi.string().required().length(2),
   })
 }), OngController.create);
+
+routes.get('/profile', celebrate({
+  [Segments.HEADERS]: Joi.object({
+    authorization: Joi.string().required(),
+  }).unknown(),
+}), ProfileController.index);
+
+routes.delete('/ongs/:id', celebrate({
+  [Segments.HEADERS]: Joi.object({
+    authorization: Joi.string().required(),
+  }).unknown(),
+  [Segments.PARAMS]: Joi.object().keys({
+    id: Joi.string().required(),
+  })
+}), OngController.delete);
+
+// INCIDENTS ROUTES
 
 routes.post('/incidents', celebrate({
   [Segments.HEADERS]: Joi.object({
@@ -48,11 +67,5 @@ routes.delete('/incidents/:id', celebrate({
     id: Joi.number().required(),
   })
 }), IncidentController.delete);
-
-routes.get('/profile', celebrate({
-  [Segments.HEADERS]: Joi.object({
-    authorization: Joi.string().required(),
-  }).unknown(),
-}), ProfileController.index);
 
 module.exports = routes;
