@@ -6,6 +6,9 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import NewIncident from './pages/NewIncident';
 
+/**
+ * Define as rotas (url das páginas) da aplicação frontend
+ */
 export default function Routes() {
   return (
     <BrowserRouter>
