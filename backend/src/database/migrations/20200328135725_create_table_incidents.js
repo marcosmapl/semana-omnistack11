@@ -1,5 +1,8 @@
 const table_name = 'incidents'
 
+/**
+ * INCIDENT table 'create' schema function
+ */
 exports.up = function(knex) {
   return knex.schema.createTable(table_name, function (table) {
     table.increments();
@@ -14,6 +17,9 @@ exports.up = function(knex) {
   });
 };
 
+/**
+ * INCIDENT table 'drop' schema function
+ */
 exports.down = function(knex) {
   return knex.schema.dropTable(table_name);
 };

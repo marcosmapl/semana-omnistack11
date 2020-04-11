@@ -5,8 +5,11 @@ const routes = require('./routes');
 
 const app = express();
 
+// cross orign resource sharing for http requests
 app.use(cors());
-app.use(express.json()); // define que as requisições devam ocorrer usando JSON
+
+// define que as requisições devam ocorrer usando JSON
+app.use(express.json());
 
 /**
  * Rota ou Recurso
@@ -33,8 +36,10 @@ app.use(express.json()); // define que as requisições devam ocorrer usando JSO
  *  Drivers: SELECT * FROM TABLE;
  *  Query Builder: table('users').select('*').where()
  */
-
+// define as rotas da aplicação
 app.use(routes);
+
+// configura os erros retornados pela validação do módulo 'supertest'
 app.use(errors());
 
 module.exports = app;
