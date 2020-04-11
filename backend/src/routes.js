@@ -9,7 +9,11 @@ const SessionController = require('./controllers/SessionController');
 // obtém o objeto de roteamento do express
 const routes = express.Router();
 
-routes.post('/sessions', SessionController.index);
+routes.post('/sessions', celebrate({
+  [Segments.BODY]: Joi.object().keys({
+    id: Joi.string().required(),
+  }),
+}), SessionController.index);
 
 routes.get('/ongs', OngController.index);
 routes.post('/ongs', celebrate({
@@ -29,7 +33,7 @@ routes.post('/incidents', celebrate({
   [Segments.BODY]: Joi.object().keys({
     title: Joi.string().required(),
     description: Joi.string().required(),
-    value: Joi.number().positive().min(10),
+    value: Joi.required().number().positive().min(10),
   }),
 }), IncidentController.create);
 
