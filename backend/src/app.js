@@ -37,4 +37,4 @@ app.use(express.json()); // define que as requisições devam ocorrer usando JSO
 app.use(routes);
 app.use(errors());
 
-app.listen(3333);
+module.exports = app;
