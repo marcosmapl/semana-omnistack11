@@ -4,20 +4,34 @@ import { FiArrowLeft } from 'react-icons/fi';
 
 import './style.css';
 
+// backend connection api
 import api from '../../services/api';
+
 import logoImg from '../../assets/logo.svg';
 
 export default function NewIncident() {
+
+  // atributos da 'incidente'
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
 
+  // objeto do react para navegação entre páginas
   const history = useHistory();
 
+  /**
+   * Handle function do evento de inclusão do 'incidente' (form submit)
+   * @param {*} event 
+   */
   async function handleNewIncident(event) {
+
+    // previne o comportamento 'padrão' de submissão do 'form' html
     event.preventDefault();
 
+    // recupera, no armazenamento local do navegador, o 'id' da 'ong' logada no sistema.
     const ong_id = localStorage.getItem('ong_id');
+
+    // cria um objeto com as informações do 'incidente'
     const data = {
       title,
       description,
@@ -25,13 +39,18 @@ export default function NewIncident() {
     };
 
     try {
+      // faz uma chamada ao backend para a inclusão do 'incidente'
+      // no cabeçalho da requisição é enviado o 'id' da 'ong' logada no sistema.
       const response = await api
         .post('incidents', data, {
           headers: {
             Authorization: ong_id,
           }
         });
-
+      
+      alert(`Incidente cadastrado com sucesso!: ${response.data}`);
+      
+      // retorna para a página de perfil da 'ong'
       history.push('/profile');
     } catch (error) {
       alert('Não foi possível cadastrar o novo caso, por favor tente novamente mais tarde!');

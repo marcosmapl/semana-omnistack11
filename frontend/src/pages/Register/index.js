@@ -2,23 +2,34 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import api from '../../services/api';
 import './styles.css';
+
+// backend connection api
+import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
 export default function Register() {
+
+  // dados da 'ong' a ser incluída
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [city, setCity] = useState('');
   const [uf, setUf] = useState('');
 
+  // objeto do react para navegação entre páginas
   const history = useHistory();
 
+  /**
+   * Handle function para o evento de inclusão da 'ong' (form submit)
+   * @param {*} event 
+   */
   async function handleRegister(event) {
+    // evita o comportamento 'default' do form de submit
     event.preventDefault();
 
+    // cria um objeto com as informações do 'incidente'
     const data = {
       name,
       email,
@@ -28,10 +39,13 @@ export default function Register() {
     };
 
     try {
+
+      // faz uma chamada ao backend para inclusão da 'ong'
       const response = await api.post('ongs', data);
 
       alert(`Seu ID de acesso: ${response.data.id}`);
 
+      // redireciona para página inicial
       history.push('/');
     } catch (err) {
       alert('Não foi possível concluir o cadastro, por favor tente novamente mais tarde!')
