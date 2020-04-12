@@ -88,12 +88,16 @@ O projeto `backend` possui a seguinte estrutura:
 
 1. Faça o download do Projeto [Backend](https://github.com/marcosmapl/semana-omnistack11/tree/master/backend).
 1. Na pasta `backend/` execute o comando:
+		
 		npm install
+
 1. Isso irá instalar todas as dependências do projeto.
 1. Para executar a aplicação, execute o comando abaixo na pasta `backend/`:
+		
 		npm start
 
 1. E então deve ser exibido algo parecido com:
+		
 		> backend@1.0.0 start /home/usuario/.../semana-omnistack11/backend/
 		> nodemon src/server.js
 
@@ -102,6 +106,7 @@ O projeto `backend` possui a seguinte estrutura:
 		[nodemon] watching dir(s): *.*
 		[nodemon] watching extensions: js,mjs,json
 		[nodemon] starting `node src/server.js`
+
 1. Pronto o servidor Backend está em execução!
 
 ## Frontend
@@ -125,26 +130,38 @@ O Frontend é uma aplicação [ReactJS](https://pt-br.reactjs.org/):
   <img src="img/backend-screenshot-01.png" alt="Tela de Logon" style="width:75%">
   <figcaption>Screenshot 01 - Tela de Logon</figcaption>
 </figure>
+</div>
+<div>
 <figure>
   <img src="img/backend-screenshot-02.png" alt="Tela de Registro de ONG" style="width:75%">
   <figcaption>Screenshot 02 - Tela de Registro de ONG</figcaption>
 </figure>
+</div>
+<div>
 <figure>
   <img src="img/backend-screenshot-03.png" alt="Código UUID gerado" style="width:75%">
   <figcaption>Screenshot 03 - Código UUID gerado</figcaption>
 </figure>
+</div>
+<div>	
 <figure>
   <img src="img/backend-screenshot-04.png" alt="ONG Efetuando Logon" style="width:75%">
   <figcaption>Screenshot 04 - ONG Efetuando Logon</figcaption>
 </figure>
+</div>
+<div>
 <figure>
   <img src="img/backend-screenshot-05.png" alt="Tela de Perfil da ONG" style="width:75%">
-  <figcaption>Screenshot 05 - Tela de Perfil da ONG</figcaption>
+  <center><figcaption>Screenshot 05 - Tela de Perfil da ONG</figcaption></center>
 </figure>
+</div>
+<div>
 <figure>
   <img src="img/backend-screenshot-06.png" alt="Tela de Cadastro de Incidente" style="width:75%">
   <figcaption>Screenshot 06 - Tela de Cadastro de Incidente</figcaption>
 </figure>
+</div>
+<div>
 <figure>
   <img src="img/backend-screenshot-07.png" alt="Listagem de Incidentes" style="width:75%">
   <figcaption>Screenshot 07 - Listagem de Incidentes</figcaption>
@@ -188,11 +205,16 @@ O projeto `frontend` possui a seguinte estrutura:
 
 1. Faça o download do Projeto [Frontend](https://github.com/marcosmapl/semana-omnistack11/tree/master/frontend).
 1. Na pasta `frontend/` execute o comando:
+		
 		npm install
+
 1. Isso irá instalar todas as dependências do projeto.
 1. Para executar a aplicação, execute o comando abaixo na pasta `frontend/`:
+		
 		npm start
+
 1. E então deve ser exibido algo parecido com:
+		
 		Compiled successfully!
 
 		You can now view frontend in the browser.
@@ -202,6 +224,7 @@ O projeto `frontend` possui a seguinte estrutura:
 
 		Note that the development build is not optimized.
 		To create a production build, use yarn build.
+
 1. Por fim a Página de Logon deverá ser exibida no seu navegador padrão.
 
 ## Mobile
@@ -222,31 +245,37 @@ O Aplicação Mobile foi escrita utilizando [React Native](https://github.com/fa
 
 ### Screenshots
 
-<div style="display: inline-flex;">
+<div>
 <figure>
-  <img src="img/mobile-screenshot-01.png" alt="Splash Screen" style="width:300px">
-  <figcaption>Screenshot 01 - Splash Screen</figcaption>
-</figure>
-<figure>
-    <img src="img/mobile-screenshot-02.png" alt="Tela Principal (Listagem de Casos)" style="width:300px">
-  <figcaption>Screenshot 02 - Tela Principal (Listagem de Casos)</figcaption>
+  	<img src="img/mobile-screenshot-01.png" alt="Splash Screen" style="width:300px">
+  	<figcaption>Screenshot 01 - Splash Screen</figcaption>
 </figure>
 </div>
-<div style="display: inline-flex;">
+<div>
+<figure>
+	<img src="img/mobile-screenshot-02.png" alt="Tela Principal (Listagem de Casos)" style="width:300px">
+  	<figcaption>Screenshot 02 - Tela Principal (Listagem de Casos)</figcaption>
+</figure>
+</div>
+<div>
 <figure>
   <img src="img/mobile-screenshot-03.png" alt="Tela Detalhamento de Caso" style="width:300px">
   <figcaption>Screenshot 03 - Tela Detalhamento de Caso</figcaption>
 </figure>
+</div>
+<div>
 <figure>
   <img src="img/mobile-screenshot-04.png" alt="Opções de E=mail" style="width:300px">
   <figcaption>Screenshot 04 - Opções de E=mail</figcaption>
 </figure>
 </div>
-<div style="display: inline-flex;">
+<div>
 <figure>
   <img src="img/mobile-screenshot-05.png" alt="E-mail de contato coma ONG" style="width:300px">
   <figcaption>Screenshot 05 - E-mail de contato coma ONG</figcaption>
 </figure>
+</div>
+<div>
 <figure>
   <img src="img/mobile-screenshot-06.png" alt="Deep Link com o Whatsapp da ONG" style="width:300px">
   <figcaption>Screenshot 06 - Deep Link com o Whatsapp da ONG</figcaption>
@@ -283,11 +312,16 @@ O projeto `mobile` possui a seguinte estrutura:
 
 1. Faça o download do Projeto [Mobile](https://github.com/marcosmapl/semana-omnistack11/tree/master/mobile).
 1. Na pasta `mobile/` execute o comando:
+		
 		yarn install
+
 1. Isso irá instalar todas as dependências do projeto.
 1. Para executar a aplicação, execute o comando abaixo, dentro da pasta `mobile/`:
+		
 		yarn start
+
 1. E então deve ser exibido algo parecido com:
+		
 		yarn run v1.22.4
 		$ expo start
 		
@@ -298,6 +332,7 @@ O projeto `mobile` possui a seguinte estrutura:
 		Tunnel ready.
 
   			exp://192.xxx.x.xx:19000
+ 
 1. Por fim a web Expo Developer Tools será exibida no seu navegador padrão.
 
 ## Contact
@@ -306,7 +341,7 @@ Marcos Lima [![LinkedIn][linkedin-shield]][linkedin-url]
 
 marcos.lima@icomp.ufam.edu.br
 
-[See my project on GitHub](https://github.com/marcosmapl/algorithms-data-structures/)
+[See my project on GitHub](https://github.com/marcosmapl/semana-omnistack11/)
 
 
 ## License
