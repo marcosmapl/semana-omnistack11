@@ -48,7 +48,7 @@ export default function NewIncident() {
           }
         });
       
-      alert(`Incidente cadastrado com sucesso!: ${response.data}`);
+      alert(`Incidente cadastrado com sucesso!: ${response.data.id}`);
       
       // retorna para a página de perfil da 'ong'
       history.push('/profile');

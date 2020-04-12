@@ -10,15 +10,23 @@ import styles from './styles';
 
 export default function Detail() {
   const navigation = useNavigation();
+  
+  // recupera o 'incidente' passado como parametro pela tela de listagem
   const route = useRoute();
-
   const incident = route.params.incident;
+  
+  // mensagem padrão de contato com a 'ong'
   const message = `Olá, "${incident.name}"! Estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de "${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRl' }).format(incident.value)}"`;
 
+  // retorna para tela de listagem
   function navigateBack() {
     navigation.goBack();
   }
 
+  /**
+   * Abre o aplicativo de 'emails' do dispositivo móvel
+   * com um modelo de e-mail
+   */
   function sendMail() {
     MailComposer.composeAsync({
       subject: `Herói do caso: ${incident.title}`,
@@ -27,6 +35,9 @@ export default function Detail() {
     });
   }
 
+  /**
+   * Abre o app whatsapp via 'link url' passando como parametro o número da 'ong'.
+   */
   function sendWhatsapp() {
     Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);
   }

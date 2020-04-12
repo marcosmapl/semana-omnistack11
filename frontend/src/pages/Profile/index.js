@@ -54,7 +54,7 @@ export default function Profile() {
         incident => incident.id !== id
       ));
 
-      alert(`Caso excluído com sucesso! ${response.data}`);
+      alert('Caso excluído com sucesso!');
     } catch (error) {
       alert('Não foi possível deletar o caso, por favor tente novamente!')
     }
