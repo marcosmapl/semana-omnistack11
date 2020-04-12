@@ -247,37 +247,37 @@ O Aplicação Mobile foi escrita utilizando [React Native](https://github.com/fa
 
 <div>
 <figure>
-  	<img src="img/mobile-screenshot-01.png" alt="Splash Screen" style="width:300px">
+  	<img src="img/mobile-screenshot-01.png" alt="Splash Screen">
   	<figcaption>Screenshot 01 - Splash Screen</figcaption>
 </figure>
 </div>
 <div>
 <figure>
-	<img src="img/mobile-screenshot-02.png" alt="Tela Principal (Listagem de Casos)" style="width:300px">
+	<img src="img/mobile-screenshot-02.png" alt="Tela Principal (Listagem de Casos)">
   	<figcaption>Screenshot 02 - Tela Principal (Listagem de Casos)</figcaption>
 </figure>
 </div>
 <div>
 <figure>
-  <img src="img/mobile-screenshot-03.png" alt="Tela Detalhamento de Caso" style="width:300px">
+  <img src="img/mobile-screenshot-03.png" alt="Tela Detalhamento de Caso">
   <figcaption>Screenshot 03 - Tela Detalhamento de Caso</figcaption>
 </figure>
 </div>
 <div>
 <figure>
-  <img src="img/mobile-screenshot-04.png" alt="Opções de E=mail" style="width:300px">
+  <img src="img/mobile-screenshot-04.png" alt="Opções de E=mail">
   <figcaption>Screenshot 04 - Opções de E=mail</figcaption>
 </figure>
 </div>
 <div>
 <figure>
-  <img src="img/mobile-screenshot-05.png" alt="E-mail de contato coma ONG" style="width:300px">
+  <img src="img/mobile-screenshot-05.png" alt="E-mail de contato coma ONG">
   <figcaption>Screenshot 05 - E-mail de contato coma ONG</figcaption>
 </figure>
 </div>
 <div>
 <figure>
-  <img src="img/mobile-screenshot-06.png" alt="Deep Link com o Whatsapp da ONG" style="width:300px">
+  <img src="img/mobile-screenshot-06.png" alt="Deep Link com o Whatsapp da ONG">
   <figcaption>Screenshot 06 - Deep Link com o Whatsapp da ONG</figcaption>
 </figure>
 </div>
@@ -332,7 +332,7 @@ O projeto `mobile` possui a seguinte estrutura:
 		Tunnel ready.
 
   			exp://192.xxx.x.xx:19000
- 
+
 1. Por fim a web Expo Developer Tools será exibida no seu navegador padrão.
 
 ## Contact
