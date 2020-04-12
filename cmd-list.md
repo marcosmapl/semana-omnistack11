@@ -113,13 +113,111 @@ Para verificar quais `migrations` foram executadas:
 
 Foi adicionado ao projeto para gerenciamento do acesso à api de serviço. Porém ainda precisa ser configurado antes do projeto entrar em produção!
 
+    npms install cors
+
+## JEST
+
+O [JEST](https://jestjs.io/) foi escolhido como framework de testes unitários por sua fácil intergração com React. Para fazer sua instalação basta executar o comando:
+
+    npm install jest
+
+Feita a instalação, podemos então iniciar a configuração utilizando o comando:
+
+    npm jest --init
+
+Para executar os testes criados dentro da pasta [tests](https://github.com/marcosmapl/semana-omnistack11/tree/master/backend/tests) basta executar o comando:
+
+    npm test -D
+
+## Cross-Env
+
+O [cross-env](https://github.com/kentcdodds/cross-env) permite que possamos ter um único comando sem se preocupar em definir ou usar a variável de ambiente corretamente para a plataforma. Basta configurá-lo como você faria se estiver sendo executado em um sistema qualquer, e o cross-env cuidará de configurá-lo corretamente. Ele é utilizado para gerenciar o tipo de conexão com o banco de dados, tanto no ambiente de desenvolvimento como no ambiente de testes.
+
+    npm install cross-env
+
+Para configurar a variável de ambiente editamos o [package.json](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/package.json) modificando o script de test como consta na linha abaixo:
+
+    ...
+    "scripts": {
+      "start": "nodemon src/server.js",
+      "test": "cross-env NODE_ENV=test jest"
+    },
+    ...
+
+Isso irá criar uma variável chamada `NODE_ENV` com o valor `test`, toda vez que o backend for executado para testes. Para ter acesso a essa variável dentro do código, podemos utilizar o objeto `process`:
+
+    const valor = process.env.NODE_ENV;
+
+## Supertest
+
+A biblioteca [supertest](https://github.com/visionmedia/supertest) foi escolhida para testes de integração por ser um projeto voltado para testes de serviços HTTP em Node.js. Para fazer sua instalação como dependência de desenvolvimento basta executar o comando abaixo:
+
+    npm install supertest -D
+
 # FRONTEND
 
 Criando o projeto:
 
-  npx create-react-app frontend
+    npx create-react-app frontend
 
-	## executar o projeto
-	> npm start
+Para Executar o projeto:
+
+    npm start
+
+## React-Icons
+
+Vários pacotes de ícones estão disponíveis junto ao ReactJS para construção da aplicação. Para instalá-los basta executar o comando:
+
+    npm install react-icons
+
+## React Router DOM
+
+A navegação entre páginas é feita utilizando o componente `Link` do módulo de rotas. Para instalar o módulo de rotas basta executar o comando:
+
+    npm install react-router-dom
+
+## AXIOS
+
+Como o Backend funciona na arquitetura REST, precisamos de um client HTTP para acessar os serviços. Para as chamadas a api do backend foi utilizado o [axios](https://github.com/axios/axios), para fazer sua instalação basta executar o comando:
+
+    npm install axios
 
 # MOBILE
+
+Instalando o Expo de forma global:
+
+    npm install -g expo-cli
+
+Para verificar se a instalação foi concluída com sucesso:
+
+    expo -h
+
+Criando o projeto `mobile`:
+
+    expo init mobile
+    > blank
+
+Carregando o projeto para interface web do Expo:
+  
+    yarn start
+
+Instalando o pacote [React Navigation](https://reactnavigation.org/docs/getting-started/) e dependências para o Expo:
+
+    npm install @react-navigation/native
+    expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+Instalando a biblioteca [Stack Navigator](https://reactnavigation.org/docs/hello-react-navigation/#installing-the-stack-navigator-library) para navegação por links:
+    
+    npm install @react-navigation/stack
+
+Instalando o pacote [Expo Constants](https://docs.expo.io/versions/latest/sdk/constants/):
+
+    expo install expo-constants
+
+Instalando o [MailComposer](https://docs.expo.io/versions/latest/sdk/mail-composer/) para construção de e-mails utilizando a UI do Sistema Operacional:
+
+    expo install expo-mail-composer
+
+Instalando o [Intl] para internacionalização:
+
+    npm install intl

@@ -1,4 +1,4 @@
-# Be The Hero - 11ª Semana Omnistack por Rocketseat
+# Be The Hero - 11ª Semana Omnistack - Rocketseat
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -17,6 +17,16 @@
 	- [Descrição](#descrição)
 	- [Estrutura do Projeto](#estrutura-do-projeto)
 	- [Executando o Projeto](#executando-o-projeto)
+- [Frontend](#frontend)
+	- [Descrição](#descrição-1)
+	- [Screenshots](#screenshots)
+	- [Estrutura do Projeto](#estrutura-do-projeto-1)
+	- [Executando o Projeto](#executando-o-projeto-1)
+- [Mobile](#frontend)
+	- [Descrição](#descrição-2)
+	- [Screenshots](#screenshots-1)
+	- [Estrutura do Projeto](#estrutura-do-projeto-1)
+	- [Executando o Projeto](#executando-o-projeto-1)
 - [Contact](#contact)
 - [License](#license)
 
@@ -30,7 +40,7 @@ Be The Hero é uma aplicação voltada para gerar um impacto social! Seu foco é
 
 ### Descrição
 
-O Backend é uma aplicação web para que as `ONGs` possam se cadastrar e gerenciar seus `Incidentes` (casos):
+O Backend é uma api REST que disponibiliza rotas para inclusão e recuperação de informações de `ONGs` e seus `Incidentes` (casos):
 
 - Foi construída utilizando NodeJS e o framework [Express](https://expressjs.com/pt-br/) implementando a arquitetura REST.
 - O padrão [JSON](https://www.json.org/json-pt.html) foi adotado como formato de troca de mensagens entre serviços.
@@ -38,42 +48,48 @@ O Backend é uma aplicação web para que as `ONGs` possam se cadastrar e gerenc
 - O módulo [Knex](http://knexjs.org/) foi usado como query builder e gerenciador de `migrations`.
 - Os ids únicos das `ONGS` foi gerado utilizando o módulo [uuid v4](https://github.com/uuidjs/uuid).
 - Para gerenciamento de acesso à api utilizamos o módulo [cors](https://github.com/expressjs/cors).
-- Para testes foi utilizado o middleware [celebrate](https://github.com/arb/celebrate) que encapsula o módulo [joi](https://github.com/hapijs/joi) do framework [happi](https://hapi.dev/), para uso dentro do Express.
-- Para os testes foi utilizado o framework [jest](https://jestjs.io/) e para testes das rotas HTTP o módulo [supertest](https://github.com/visionmedia/supertest).
+- Para validações de dados nas chamadas a API Backend foi utilizado o middleware [celebrate](https://github.com/arb/celebrate), que encapsula o módulo [joi](https://github.com/hapijs/joi) do framework [happi](https://hapi.dev/), para uso dentro do Express.
+- Para os testes unitários foi utilizado o framework [jest](https://jestjs.io/) e para testes das rotas HTTP a biblioteca [supertest](https://github.com/visionmedia/supertest).
 
 ### Estrutura do Projeto
 
-- `src/`
-	- `controllers/`
-		- [IncidentController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/IncidentController.js) - controller de incidentes (index, create e delete).
-		- [OngController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/OngController.js) - controller de ongs (index, create e delete.
-		- [ProfileController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/ProfileController.js) - controller que recupera informações da ongs que efetuou logon na aplicação.
-		- [SessionController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/SessionController.js) - controller de autenticação de ongs (logon).
-	- `database/`
-		- [connection.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/connection.js) - arquivo que recupera a conexão com o banco de dados selecionado ([desenvolvimento](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/db.sqlite3) ou [teste](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/test.sqlite3)).
-		- [db.sqlite3](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/db.sqlite3) - banco de dados de desenvolvimento.
-		- [test.sqlite3](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/test.sqlite3) - banco de dados de teste.
-		- `migrations/`
-			- [20200328134142_create_table_ongs.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/migrations/20200328134142_create_table_ongs.js) - migrations da tabela ongs.
-			- [20200328135725_create_table_incidents.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/migrations/20200328135725_create_table_incidents.js) - migrations da tabela incidents.
-	- `utils/`
-		- [generateUUID.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/utils/generateUUID.js) - função que gera `uuids` para as `ongs`.
-	- [app.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/app.js) - arquivo de configuração do servidor express.
-	- [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/routes.js) - arquivo de mapeamento das rotas aos seus respectivos controllers, além de aplicar as validações de dados usando o módulo `celebrate`.
-	- [server.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/server.js) - ponto de entrada da aplicação (inicia o servidor `app.js`).
-- `tests/`
-	- `integration/`
-		- [ong.spec.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/tests/integration/ong.spec.js) - testa a rota de inclusão (create) de ongs. 
-	- `unit/`
-		- [generateUUID.spec.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/tests/unit/generateUUID.spec.js) - testa a função que gera de uuids para as ongs.
-- [.gitignore](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/.gitignore)
-- [jest.config.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/jest.config.js) - arquivo de configuração do framework jest (automação de testes).
-- [knexfile.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/knexfile.js) - arquivo de configuração do módulo knex (acesso ao banco de dados).
-- [package.json](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/package.json) - arquivo de configurações do projeto.
+<code><pre>
+├── [jest.config.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/jest.config.js): arquivo de configuração do framework jest (automação de testes).
+├── [knexfile.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/knexfile.js): arquivo de configuração do módulo knex (acesso ao banco de dados).
+├── src
+│   ├── [app.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/app.js): arquivo de configuração do servidor express.
+│   ├── controllers
+│   │   ├── [IncidentController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/IncidentController.js): controller de incidentes (index, create e delete).
+│   │   ├── [OngController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/OngController.js): controller de ongs (index, create e delete.
+│   │   ├── [ProfileController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/ProfileController.js): controller do perfil da ong que efetuou logon na aplicação.
+│   │   └── [SessionController.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/controllers/SessionController.js): controller de autenticação de ongs (logon).
+│   ├── database
+│   │   ├── [connection.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/connection.js): arquivo que recupera a conexão com o banco de dados selecionado ([desenvolvimento](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/db.sqlite3) ou [teste](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/test.sqlite3)).
+│   │   ├── [db.sqlite3](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/db.sqlite3): banco de dados de desenvolvimento.
+│   │   ├── [test.sqlite3](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/test.sqlite3): banco de dados de testes.
+│   │   ├── migrations
+│   │   │   ├── [20200328134142_create_table_ongs.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/migrations/20200328134142_create_table_ongs.js): migrations da tabela ongs.
+│   │   │   └── [20200328135725_create_table_incidents.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/database/migrations/20200328135725_create_table_incidents.js): migrations da tabela incidents.
+│   │   └── test.sqlite3
+│   ├── [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/routes.js): arquivo de mapeamento das rotas aos seus respectivos controllers, além de aplicar as validações de dados usando o módulo celebrate.
+│   ├── [server.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/server.js): ponto de entrada da aplicação (inicia o servidor `app.js`).
+│   └── utils
+│       └── [generateUUID.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/src/utils/generateUUID.js): função que gera `uuids` para as `ongs`.
+└── tests
+    ├── integration
+    │   └── [ong.spec.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/tests/integration/ong.spec.js): testa a rota de inclusão (create) de ongs. 
+    └── unit
+        └── [generateUUID.spec.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/tests/unit/generateUUID.spec.js): testa a função que gera de uuids para as ongs.
+</pre></code>
+
 
 ### Executando o Projeto
 
-Para executar o servidor backend, execute o comando abaixo na pasta raiz do projeto:
+1. Faça o download do Projeto [Backend](https://github.com/marcosmapl/semana-omnistack11/tree/master/backend).
+1. Na pasta `backend/` execute o comando:
+		npm install
+1. Isso irá instalar todas as dependências do projeto.
+1. Para executar a aplicação, execute o comando abaixo na pasta `backend/`:
 
 	npm start
 
@@ -92,15 +108,138 @@ E então deve ser exibido algo parecido com:
 
 [View Code](https://github.com/marcosmapl/semana-omnistack11/tree/master/frontend)
 
+### Descrição
+
+O Frontend é uma aplicação [ReactJS](https://pt-br.reactjs.org/):
+
+- Utiliza o pacote de ícones [Feather Icons](https://feathericons.com/).
+- Para navegação entre páginas foram utilizados os componentes `Link` e `useHistory` do [React-Router-Dom](https://github.com/ReactTraining/react-router).
+- Para efetuar chamadas HTTP ao backend utilizou-se o [axios](https://github.com/axios/axios).
+- Os dados da sessão de usuário (ONGs) são armazenados diretamente no browser utilizando `localStorage`.
+- Valores monetários são formatados utilizando a Classe `Intl` do Javascript.
 
 ### Screenshots
 
-![Tela Principal](img/backend-screenshot-01.png)
-Tela Principal
+<div>
+<figure>
+  <img src="img/backend-screenshot-01.png" alt="Tela de Logon" style="width:75%">
+  <figcaption>Screenshot 01 - Tela de Logon</figcaption>
+</figure>
+<figure>
+  <img src="img/backend-screenshot-02.png" alt="Tela de Registro de ONG" style="width:75%">
+  <figcaption>Screenshot 02 - Tela de Registro de ONG</figcaption>
+</figure>
+<figure>
+  <img src="img/backend-screenshot-03.png" alt="Código UUID gerado" style="width:75%">
+  <figcaption>Screenshot 03 - Código UUID gerado</figcaption>
+</figure>
+<figure>
+  <img src="img/backend-screenshot-04.png" alt="ONG Efetuando Logon" style="width:75%">
+  <figcaption>Screenshot 04 - ONG Efetuando Logon</figcaption>
+</figure>
+<figure>
+  <img src="img/backend-screenshot-05.png" alt="Tela de Perfil da ONG" style="width:75%">
+  <figcaption>Screenshot 05 - Tela de Perfil da ONG</figcaption>
+</figure>
+<figure>
+  <img src="img/backend-screenshot-06.png" alt="Tela de Cadastro de Incidente" style="width:75%">
+  <figcaption>Screenshot 06 - Tela de Cadastro de Incidente</figcaption>
+</figure>
+<figure>
+  <img src="img/backend-screenshot-07.png" alt="Listagem de Incidentes" style="width:75%">
+  <figcaption>Screenshot 07 - Listagem de Incidentes</figcaption>
+</figure>
+</div>
+
+### Estrutura do Projeto
+
+- `public/`
+	- [favicon.ico](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/public/favicon.ico) - Favicon do projeto front end.
+	- [index.html](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/public/index.html) - Página inicial da aplicação.
+- `src/`
+	- `assets/`
+		- [heroes.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/assets/heroes.png) - Brand da tela principal.
+		- [logo.svg](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/assets/logo.svg) - Logo da tela principal.
+	- `pages/`
+		- `Logon/`
+			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Logon/index.js) - Tela de Logon.
+			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Logon/styles.css) - Arquivo de estilização da Tela de Logon.
+		- `NewIncident/`
+			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/NewIncident/index.js) - Tela de Inclusão de Incidente (Caso).
+			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/NewIncident/styles.css) - Arquivo de estilização da Tela de Inclusão de Incidente (Caso).
+		- `Profile/`
+			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Profile/index.js) - Tela de Perfil da ONG.
+			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Profile/styles.css) - Arquivo de estilização da Tela de Perfil da ONG.
+		- `Register/`
+			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Register/index.js) - Tela de Inclusão da ONG (Cadastro).
+			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Register/styles.css) - Arquivo de estilização da Tela de Inclusão da ONG.
+	- `services/`
+		- [api.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/services/api.js) - Arquivo de configuração da api de acesso ao backend (axios).
+	- [App.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/App.js) - Componente principal da aplicação.
+	- [global.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/global.css) - Arquivo de estilização global da aplicação.
+	- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/index.js) - Arquivo de entrada da aplicação.
+	- [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/routes.js) - Arquivo de configuração das Rotas (páginas) da Aplicação.
+
+### Executando o Projeto
+
+1. Faça o download do Projeto [Frontend](https://github.com/marcosmapl/semana-omnistack11/tree/master/frontend).
+1. Na pasta `frontend/` execute o comando:
+		npm install
+1. Isso irá instalar todas as dependências do projeto.
+1. Para executar a aplicação, execute o comando abaixo na pasta `frontend/`:
+
+		npm start
+
+1. E então deve ser exibido algo parecido com:
+
+		Compiled with warnings.
+
+		./src/pages/Profile/index.js
+	  		Line 44:13:  'response' is assigned a value but never used  no-unused-vars
+
+		Search for the keywords to learn more about each warning.
+		To ignore, add // eslint-disable-next-line to the line before.
+
+E a Página de Logon deve ser aberta no seu navegador padrão.
 
 ## Mobile
 
 [View Code](https://github.com/marcosmapl/semana-omnistack11/tree/master/mobile)
+
+### Descrição
+
+O Aplicação Mobile foi escrita utilizando [React Native](https://github.com/facebook/react-native):
+
+- Utiliza o pacote de ícones [Feather Icons](https://feathericons.com/).
+- Para navegação entre telas foi utilizada a biblioteca [Stack](https://reactnavigation.org/docs/hello-react-navigation/#installing-the-stack-navigator-library) do [React Navigation](https://reactnavigation.org/).
+- Agumas informações do sistema operacional foram obtidas utilizando [Expo-Constants](https://docs.expo.io/versions/latest/sdk/constants/).
+- Para o envio de e-mails de um Heroi para uma ONG foi utilizado o pacote [MailComposer](https://docs.expo.io/versions/latest/sdk/mail-composer/) do Expo.
+- Para o envio de mensagems de um Heroi para uma ONG foi utilizado o componente [Linking](https://reactnative.dev/docs/linking) recebendo o `Deep Link` do Whatsapp.
+- Para chamadas a API do Backend foi utilizado, assim como no Frontend, o [axios](https://github.com/axios/axios).
+- Para formatação dos valores monetários foi utilizado o pacote [Intl](https://github.com/andyearnshaw/Intl.js).
+
+### Estrutura do Projeto
+
+- `assets/`
+	- [icon.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/assets/icon.png) - Ícone do App.
+	- [splash.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/assets/splash.png) - Splash Screen exibida na inicialização do App.
+- `src/`
+	- `assets/`
+		- [logo.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo.png) - Logo do App com densidade normal, utilizado nos cabeçalhos das Telas.
+		- [logo@2x.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo%402x.png) - Logo do App com densidade x2, utilizado nos cabeçalhos das Telas.
+		- [logo@3x.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo%403x.png) - Logo do App com densidade x3, utilizado nos cabeçalhos das Telas.
+	- `pages/`
+		- `Detail/`
+			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Detail/index.js) - Tela de detalhamento de um Incidente (Caso) escolhido na listagem da Tela Principal.
+			- [styles.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Detail/styles.js) - Arquivo de estilização da Tela de detalhamento de um Incidente (Caso).
+		- `Incidents/`
+			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Incidents/index.js) - Tela Principal (Listagem de Incidentes que precisam de Ajuda).
+			- [styles.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Incidents/styles.js) - Arquivo de estilização da Tela Principal.
+	- `services/`
+		- [api.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/services/api.js) - Arquivo de configuração do axios para acesso a API Backend.
+	- [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/routes.js) - Arquivo de configuração das rotas (Telas) no App.
+- [App.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/App.js) - Arquivo Principal (entrada) do App.
+- [app.json](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/app.json) - Arquivo de Configurações do App.
 
 ## Contact
 
