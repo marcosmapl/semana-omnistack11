@@ -22,11 +22,11 @@
 	- [Screenshots](#screenshots)
 	- [Estrutura do Projeto](#estrutura-do-projeto-1)
 	- [Executando o Projeto](#executando-o-projeto-1)
-- [Mobile](#frontend)
+- [Mobile](#mobile)
 	- [Descrição](#descrição-2)
 	- [Screenshots](#screenshots-1)
-	- [Estrutura do Projeto](#estrutura-do-projeto-1)
-	- [Executando o Projeto](#executando-o-projeto-1)
+	- [Estrutura do Projeto](#estrutura-do-projeto-2)
+	- [Executando o Projeto](#executando-o-projeto-2)
 - [Contact](#contact)
 - [License](#license)
 
@@ -53,6 +53,7 @@ O Backend é uma api REST que disponibiliza rotas para inclusão e recuperação
 
 ### Estrutura do Projeto
 
+O projeto `backend` possui a seguinte estrutura:
 <code><pre>
 ├── [jest.config.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/jest.config.js): arquivo de configuração do framework jest (automação de testes).
 ├── [knexfile.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/backend/knexfile.js): arquivo de configuração do módulo knex (acesso ao banco de dados).
@@ -90,19 +91,18 @@ O Backend é uma api REST que disponibiliza rotas para inclusão e recuperação
 		npm install
 1. Isso irá instalar todas as dependências do projeto.
 1. Para executar a aplicação, execute o comando abaixo na pasta `backend/`:
+		npm start
 
-	npm start
+1. E então deve ser exibido algo parecido com:
+		> backend@1.0.0 start /home/usuario/.../semana-omnistack11/backend/
+		> nodemon src/server.js
 
-E então deve ser exibido algo parecido com:
-
-	> backend@1.0.0 start /home/usuário/.../backend
-	> nodemon src/server.js
-
-	[nodemon] 2.0.2
-	[nodemon] to restart at any time, enter `rs`
-	[nodemon] watching dir(s): *.*
-	[nodemon] watching extensions: js,mjs,json
-	[nodemon] starting `node src/server.js`
+		[nodemon] 2.0.2
+		[nodemon] to restart at any time, enter `rs`
+		[nodemon] watching dir(s): *.*
+		[nodemon] watching extensions: js,mjs,json
+		[nodemon] starting `node src/server.js`
+1. Pronto o servidor Backend está em execução!
 
 ## Frontend
 
@@ -153,32 +153,36 @@ O Frontend é uma aplicação [ReactJS](https://pt-br.reactjs.org/):
 
 ### Estrutura do Projeto
 
-- `public/`
-	- [favicon.ico](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/public/favicon.ico) - Favicon do projeto front end.
-	- [index.html](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/public/index.html) - Página inicial da aplicação.
-- `src/`
-	- `assets/`
-		- [heroes.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/assets/heroes.png) - Brand da tela principal.
-		- [logo.svg](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/assets/logo.svg) - Logo da tela principal.
-	- `pages/`
-		- `Logon/`
-			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Logon/index.js) - Tela de Logon.
-			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Logon/styles.css) - Arquivo de estilização da Tela de Logon.
-		- `NewIncident/`
-			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/NewIncident/index.js) - Tela de Inclusão de Incidente (Caso).
-			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/NewIncident/styles.css) - Arquivo de estilização da Tela de Inclusão de Incidente (Caso).
-		- `Profile/`
-			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Profile/index.js) - Tela de Perfil da ONG.
-			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Profile/styles.css) - Arquivo de estilização da Tela de Perfil da ONG.
-		- `Register/`
-			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Register/index.js) - Tela de Inclusão da ONG (Cadastro).
-			- [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Register/styles.css) - Arquivo de estilização da Tela de Inclusão da ONG.
-	- `services/`
-		- [api.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/services/api.js) - Arquivo de configuração da api de acesso ao backend (axios).
-	- [App.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/App.js) - Componente principal da aplicação.
-	- [global.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/global.css) - Arquivo de estilização global da aplicação.
-	- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/index.js) - Arquivo de entrada da aplicação.
-	- [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/routes.js) - Arquivo de configuração das Rotas (páginas) da Aplicação.
+O projeto `frontend` possui a seguinte estrutura:
+<code><pre>
+├── public
+│   ├── [favicon.ico](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/public/favicon.ico): favicon do projeto front end.
+│   └── [index.html](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/public/index.html): página inicial da aplicação.
+├── src
+│   ├── [App.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/App.js): Componente principal da aplicação.
+│   ├── assets
+│   │   ├── [heroes.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/assets/heroes.png): Brand da tela principal.
+│   │   └── [logo.svg](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/assets/logo.svg): Logo da tela principal.
+│   ├── [global.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/global.css): Arquivo de estilização global da aplicação.
+│   ├── Header.js
+│   ├── [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/index.js): Arquivo de entrada da aplicação.
+│   ├── pages
+│   │   ├── Logon
+│   │   │   ├── [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Logon/index.js): Tela de Logon.
+│   │   │   └── [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Logon/styles.css): Arquivo de estilização da Tela de Logon.
+│   │   ├── NewIncident
+│   │   │   ├── [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/NewIncident/index.js): Tela de Inclusão de Incidente (Caso).
+│   │   │   └── [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/NewIncident/styles.css): Arquivo de estilização da Tela de Inclusão de Incidente (Caso).
+│   │   ├── Profile
+│   │   │   ├── [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Profile/index.js): Tela de Perfil da ONG.
+│   │   │   └── [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Profile/styles.css): Arquivo de estilização da Tela de Perfil da ONG.
+│   │   └── Register
+│   │       ├── [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Register/index.js): Tela de Inclusão da ONG (Cadastro).
+│   │       └── [styles.css](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/pages/Register/styles.css): Arquivo de estilização da Tela de Inclusão da ONG.
+│   ├── [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/routes.js): Arquivo de configuração das Rotas (páginas) da Aplicação.
+│   └── services
+│       └── [api.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/frontend/src/services/api.js): Arquivo de configuração da api de acesso ao backend (axios).
+</pre></code>
 
 ### Executando o Projeto
 
@@ -187,20 +191,18 @@ O Frontend é uma aplicação [ReactJS](https://pt-br.reactjs.org/):
 		npm install
 1. Isso irá instalar todas as dependências do projeto.
 1. Para executar a aplicação, execute o comando abaixo na pasta `frontend/`:
-
 		npm start
-
 1. E então deve ser exibido algo parecido com:
+		Compiled successfully!
 
-		Compiled with warnings.
+		You can now view frontend in the browser.
 
-		./src/pages/Profile/index.js
-	  		Line 44:13:  'response' is assigned a value but never used  no-unused-vars
+  			Local:            http://localhost:3000
+  			On Your Network:  http://192.xxx.x.xx:3000
 
-		Search for the keywords to learn more about each warning.
-		To ignore, add // eslint-disable-next-line to the line before.
-
-E a Página de Logon deve ser aberta no seu navegador padrão.
+		Note that the development build is not optimized.
+		To create a production build, use yarn build.
+1. Por fim a Página de Logon deverá ser exibida no seu navegador padrão.
 
 ## Mobile
 
@@ -218,28 +220,85 @@ O Aplicação Mobile foi escrita utilizando [React Native](https://github.com/fa
 - Para chamadas a API do Backend foi utilizado, assim como no Frontend, o [axios](https://github.com/axios/axios).
 - Para formatação dos valores monetários foi utilizado o pacote [Intl](https://github.com/andyearnshaw/Intl.js).
 
+### Screenshots
+
+<div style="display: inline-flex;">
+<figure>
+  <img src="img/mobile-screenshot-01.png" alt="Splash Screen" style="width:300px">
+  <figcaption>Screenshot 01 - Splash Screen</figcaption>
+</figure>
+<figure>
+    <img src="img/mobile-screenshot-02.png" alt="Tela Principal (Listagem de Casos)" style="width:300px">
+  <figcaption>Screenshot 02 - Tela Principal (Listagem de Casos)</figcaption>
+</figure>
+</div>
+<div style="display: inline-flex;">
+<figure>
+  <img src="img/mobile-screenshot-03.png" alt="Tela Detalhamento de Caso" style="width:300px">
+  <figcaption>Screenshot 03 - Tela Detalhamento de Caso</figcaption>
+</figure>
+<figure>
+  <img src="img/mobile-screenshot-04.png" alt="Opções de E=mail" style="width:300px">
+  <figcaption>Screenshot 04 - Opções de E=mail</figcaption>
+</figure>
+</div>
+<div style="display: inline-flex;">
+<figure>
+  <img src="img/mobile-screenshot-05.png" alt="E-mail de contato coma ONG" style="width:300px">
+  <figcaption>Screenshot 05 - E-mail de contato coma ONG</figcaption>
+</figure>
+<figure>
+  <img src="img/mobile-screenshot-06.png" alt="Deep Link com o Whatsapp da ONG" style="width:300px">
+  <figcaption>Screenshot 06 - Deep Link com o Whatsapp da ONG</figcaption>
+</figure>
+</div>
+
 ### Estrutura do Projeto
 
-- `assets/`
-	- [icon.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/assets/icon.png) - Ícone do App.
-	- [splash.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/assets/splash.png) - Splash Screen exibida na inicialização do App.
-- `src/`
-	- `assets/`
-		- [logo.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo.png) - Logo do App com densidade normal, utilizado nos cabeçalhos das Telas.
-		- [logo@2x.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo%402x.png) - Logo do App com densidade x2, utilizado nos cabeçalhos das Telas.
-		- [logo@3x.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo%403x.png) - Logo do App com densidade x3, utilizado nos cabeçalhos das Telas.
-	- `pages/`
-		- `Detail/`
-			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Detail/index.js) - Tela de detalhamento de um Incidente (Caso) escolhido na listagem da Tela Principal.
-			- [styles.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Detail/styles.js) - Arquivo de estilização da Tela de detalhamento de um Incidente (Caso).
-		- `Incidents/`
-			- [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Incidents/index.js) - Tela Principal (Listagem de Incidentes que precisam de Ajuda).
-			- [styles.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Incidents/styles.js) - Arquivo de estilização da Tela Principal.
-	- `services/`
-		- [api.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/services/api.js) - Arquivo de configuração do axios para acesso a API Backend.
-	- [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/routes.js) - Arquivo de configuração das rotas (Telas) no App.
-- [App.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/App.js) - Arquivo Principal (entrada) do App.
-- [app.json](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/app.json) - Arquivo de Configurações do App.
+O projeto `mobile` possui a seguinte estrutura:
+<code><pre>
+├── [App.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/App.js): Arquivo Principal (entrada) do App.
+├── [app.json](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/app.json): Arquivo de Configurações do App.
+├── assets
+│   ├── [icon.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/assets/icon.png): Ícone do App.
+│   └── [splash.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/assets/splash.png): Splash Screen exibida na inicialização do App.
+├── src
+│   ├── assets
+│   │   ├── [logo.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo.png): Logo do App com densidade normal, utilizado nos cabeçalhos das Telas.
+│   │   ├── [logo@2x.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo%402x.png): Logo do App com densidade x2, utilizado nos cabeçalhos das Telas.
+│   │   └── [logo@3x.png](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/assets/logo%403x.png): Logo do App com densidade x3, utilizado nos cabeçalhos das Telas.
+│   ├── pages
+│   │   ├── Detail
+│   │   │   ├── [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Detail/index.js): Tela de detalhamento de um Incidente (Caso) escolhido na listagem da Tela Principal.
+│   │   │   └── [styles.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Detail/styles.js): Arquivo de estilização da Tela de detalhamento de um Incidente (Caso).
+│   │   └── Incidents
+│   │       ├── [index.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Incidents/index.js): Tela Principal (Listagem de Incidentes que precisam de Ajuda).
+│   │       └── [styles.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/pages/Incidents/styles.js): Arquivo de estilização da Tela Principal.
+│   ├── [routes.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/routes.js): Arquivo de configuração das rotas (Telas) no App.
+│   └── services
+│       └── [api.js](https://github.com/marcosmapl/semana-omnistack11/blob/master/mobile/src/services/api.js): Arquivo de configuração do axios para acesso a API Backend.
+</pre></code>
+
+### Executando o Projeto
+
+1. Faça o download do Projeto [Mobile](https://github.com/marcosmapl/semana-omnistack11/tree/master/mobile).
+1. Na pasta `mobile/` execute o comando:
+		yarn install
+1. Isso irá instalar todas as dependências do projeto.
+1. Para executar a aplicação, execute o comando abaixo, dentro da pasta `mobile/`:
+		yarn start
+1. E então deve ser exibido algo parecido com:
+		yarn run v1.22.4
+		$ expo start
+		
+		Starting project at /home/usuario/.../semana-omnistack11/mobile
+		Expo DevTools is running at http://localhost:19002
+		Opening DevTools in the browser... (press shift-d to disable)
+		Starting Metro Bundler on port 19001.
+		Tunnel ready.
+
+  			exp://192.xxx.x.xx:19000
+1. Por fim a web Expo Developer Tools será exibida no seu navegador padrão.
 
 ## Contact
 

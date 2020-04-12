@@ -218,6 +218,6 @@ Instalando o [MailComposer](https://docs.expo.io/versions/latest/sdk/mail-compos
 
     expo install expo-mail-composer
 
-Instalando o [Intl] para internacionalização:
+Instalando o [Intl](https://www.npmjs.com/package/intl) para internacionalização:
 
     npm install intl

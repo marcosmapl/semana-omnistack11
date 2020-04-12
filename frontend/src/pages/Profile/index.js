@@ -41,7 +41,7 @@ export default function Profile() {
     try {
 
       // faz uma chamada ao backend para exclusão do 'incidente'
-      const response = await api
+      await api
         .delete(`incidents/${id}`, {
           headers: {
             Authorization: ong_id,
